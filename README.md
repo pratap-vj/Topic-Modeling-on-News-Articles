@@ -50,12 +50,13 @@ Log likelihood Score for the LDA model: -441587.0754078079
 Perplixity of the LDA model: 743.0567842013797
 Accuracy of the LDA model 92.71%
 
-           Topic     Recall  Precision   F1_Score
-0       Business  84.294235  97.695853  90.501601
-1  Entertainment  92.411924  96.327684  94.329184
-2       Politics  98.511166  81.352459  89.113356
-3          Sport  98.409543  96.868885  97.633136
-4           Tech  90.201729  92.603550  91.386861
+ Topic	Recall	Precision	F1_Score
+Business	84.294235	97.695853	90.501601
+Entertainment	92.411924	96.327684	94.329184
+Politics	98.511166	81.352459	89.113356
+Sport	98.409543	96.868885	97.633136
+Tech	90.201729	92.60355	91.386861
+![image](https://github.com/pratap-vj/Topic-Modeling-on-News-Articles/assets/123111274/47efc723-672a-4605-88a4-ca67e890ca6a)
 
 
 Model 2: LDA with TFIDF Vectorizer
@@ -63,22 +64,28 @@ Log-likelihood Score for the LDA model: -15266.990851227729
 Perplexity of the LDA model: 386.9878030848297
 Accuracy of the LDA model 87.25%
 
-           Topic     Recall  Precision   F1_Score
-0       Business  88.469185  91.375770  89.898990
-1  Entertainment  74.254743  94.809689  83.282675
-2       Politics  94.292804  77.079108  84.821429
-3          Sport  90.656064  91.017964  90.836653
-4           Tech  86.167147  84.225352  85.185185
+Topic	Recall	Precision	F1_Score
+Business	88.469185	91.37577	89.89899
+Entertainment	74.254743	94.809689	83.282675
+Politics	94.292804	77.079108	84.821429
+Sport	90.656064	91.017964	90.836653
+Tech	86.167147	84.225352	85.185185
+![image](https://github.com/pratap-vj/Topic-Modeling-on-News-Articles/assets/123111274/ef8b2feb-8e95-41c4-9d6b-464d5a0adf2b)
+
 
 After analyzing the evaluation metrics for Model 1 (LDA with CountVectorizer) and Model 2 (LSA with TFIDF/CountVectorizer), the following observations can be made:
 
-Perplexity: Model 1 achieves a lower perplexity score compared to Model 2. This suggests that Model 1 performs better in predicting unseen documents, indicating its effectiveness in categorizing textual data.
+# Perplexity: 
+Model 1 achieves a lower perplexity score compared to Model 2. This suggests that Model 1 performs better in predicting unseen documents, indicating its effectiveness in categorizing textual data.
 
-Log-Likelihood: Model 2 obtains a higher log-likelihood score, indicating a better fit to the observed data. However, it is important to consider additional metrics to assess the overall performance of the models.
+# Log-Likelihood: 
+Model 2 obtains a higher log-likelihood score, indicating a better fit to the observed data. However, it is important to consider additional metrics to assess the overall performance of the models.
 
-Accuracy: Model 1 exhibits a significantly higher accuracy score compared to Model 2, surpassing it by approximately 10%. This implies that Model 1 excels in correctly categorizing articles in proportion to the total number of articles.
+# Accuracy: 
+Model 1 exhibits a significantly higher accuracy score compared to Model 2, surpassing it by approximately 10%. This implies that Model 1 excels in correctly categorizing articles in proportion to the total number of articles.
 
-Precision and Recall: Model 1 demonstrates better precision and recall scores for each topic compared to Model 2. Although Model 2 achieves high precision in the Entertainment topic, it suffers from low recall, indicating a higher likelihood of missing relevant articles. Model 1 generally outperforms Model 2 in terms of precision, recall, and F1 score across most topics, except for Business and Politics where the scores are comparable.
+# Precision and Recall: 
+Model 1 demonstrates better precision and recall scores for each topic compared to Model 2. Although Model 2 achieves high precision in the Entertainment topic, it suffers from low recall, indicating a higher likelihood of missing relevant articles. Model 1 generally outperforms Model 2 in terms of precision, recall, and F1 score across most topics, except for Business and Politics where the scores are comparable.
 
 Based on these results, it is evident that Model 1 (LDA with CountVectorizer) is the preferred choice for topic modeling of this dataset. It exhibits a lower perplexity, high accuracy, and superior precision and recall scores. Therefore, there is insufficient evidence to reject the null hypothesis that CountVectorizer is a better choice than TFIDFVectorizer for tokenizing data input into an LDA model.
 
@@ -87,15 +94,20 @@ In conclusion, Model 1 demonstrates superior performance and is recommended as t
 # Conclusion
 Several key conclusions were drawn from the project:
 
-Encoding errors: During the process of reading News article text files, encoding errors like UnicodeError and ParserError were encountered. To address this issue, exception handling was implemented to ensure proper reading of these articles.
+# Encoding errors: 
+During the process of reading News article text files, encoding errors like UnicodeError and ParserError were encountered. To address this issue, exception handling was implemented to ensure proper reading of these articles.
 
-Stopword optimization: The textual pre-processing stage revealed that further optimization of stopwords could be done to improve the model's performance. Certain common words such as "use" and "go" could be removed as they do not contribute significantly to topic identification. However, words like "us" need to be handled carefully as they can have multiple meanings, including "United States."
+# Stopword optimization: 
+The textual pre-processing stage revealed that further optimization of stopwords could be done to improve the model's performance. Certain common words such as "use" and "go" could be removed as they do not contribute significantly to topic identification. However, words like "us" need to be handled carefully as they can have multiple meanings, including "United States."
 
-Stemming vs. lemmatization: Stemming, which reduces words to their root form by chopping off the end, was not implemented in the pre-processing stage. Instead, lemmatization, which considers the context and morphology of words to reduce them to their base form, was used. This decision was made to preserve as much of the original meaning as possible, as topics in topic modeling often rely on language nuances and word usage context.
+# Stemming vs. lemmatization:
+Stemming, which reduces words to their root form by chopping off the end, was not implemented in the pre-processing stage. Instead, lemmatization, which considers the context and morphology of words to reduce them to their base form, was used. This decision was made to preserve as much of the original meaning as possible, as topics in topic modeling often rely on language nuances and word usage context.
 
-Choice of tokenization: A null hypothesis was established to determine the optimal choice between CountVectorizer and TFIDFVectorizer for tokenizing the textual data. The findings indicated that CountVectorizer is suitable for tokenization in LDA models. CountVectorizer converts text into an array of word counts, aligning well with the probabilistic nature of LDA, which models word count and topic distributions.
+# Choice of tokenization: 
+A null hypothesis was established to determine the optimal choice between CountVectorizer and TFIDFVectorizer for tokenizing the textual data. The findings indicated that CountVectorizer is suitable for tokenization in LDA models. CountVectorizer converts text into an array of word counts, aligning well with the probabilistic nature of LDA, which models word count and topic distributions.
 
-Model comparison: The implemented LDA model using CountVectorizer for tokenization outperformed the LSA model in categorizing the underlying topics in the corpus of articles. The LDA model achieved a high accuracy rate of 93%. Additionally, by examining the word distributions for each topic, a clear correlation between the most frequent words and the topics could be identified, further validating the effectiveness of the LDA model.
+# Model comparison: 
+The implemented LDA model using CountVectorizer for tokenization outperformed the LSA model in categorizing the underlying topics in the corpus of articles. The LDA model achieved a high accuracy rate of 93%. Additionally, by examining the word distributions for each topic, a clear correlation between the most frequent words and the topics could be identified, further validating the effectiveness of the LDA model.
 
 In summary, the project highlighted the importance of handling encoding errors, optimizing stopwords, selecting appropriate tokenization methods, and utilizing models like LDA with proper pre-processing techniques to accurately categorize topics within a corpus of articles. The results showcased the superiority of the LDA model with CountVectorizer in achieving high accuracy and identifying meaningful topic distributions.
 
