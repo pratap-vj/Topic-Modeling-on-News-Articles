@@ -13,10 +13,10 @@ Additionally, the LDA model is re-applied by using the TfidfVectorizer to vector
 
 After identifying the latent topics, the models are evaluated by verifying whether these topics correspond to the different tags available as input. The identified topics are compared with the original tags for each article by using metrics such as Accuracy and individual topic precisions, recalls and F1 Scores. Finally, word-clouds are generated for each topic to better understand the most frequent words in each topic and whether they actually correspond to that topic or not.
 
-# Problem Statement
+# Problem Statement-
 The challenge is to perform topic modeling on the BBC News dataset, consisting of news articles from 2004-2005 across five categories. The objective is to uncover the latent themes and topics present within the dataset and evaluate the accuracy of the topic modeling results. This involves selecting an appropriate algorithm, optimizing it, and interpreting the results through visualizations and evaluation metrics. The problem aims to gain insights into the content and categorization of the news articles for further analysis and understanding.
 
-# Variables Description
+# Variables Description-
 Each column is a string object, each row describing each article from the BBC News Dataset The columns were
 
 Title - Article title
@@ -31,45 +31,40 @@ The highest number of articles provided were from the Sports category (with 511 
 
 ![image](https://github.com/pratap-vj/Topic-Modeling-on-News-Articles/assets/123111274/2e170b90-4d7b-4ea6-acc2-d0ae46157fca)
 
-#  Latent Dirichlet Allocation with CountVectorizer
+#  Latent Dirichlet Allocation with CountVectorizer-
 
 ![image](https://github.com/pratap-vj/Topic-Modeling-on-News-Articles/assets/123111274/477249e4-b84f-4c92-9076-f916207c1c3e)
 
-# Latent Dirichlet Allocation with TFIDF Vectorizer
+# Latent Dirichlet Allocation with TFIDF Vectorizer-
 
 ![image](https://github.com/pratap-vj/Topic-Modeling-on-News-Articles/assets/123111274/d238b3f9-8553-4225-9730-cff9beeac28e)
 
-# Latent Semantic Analysis
+# Latent Semantic Analysis-
 
 For Latent Semantic Analysis, the TruncatedSVD algorithm is used. Two models are tried - one with TFIDF Vectorized data as input, and the other with CountVectorized data as input
 
 It can be observed that the LSA algorithm when used on the dataset (tokenised with both TFIDF and the Bag-of-Words), over-determined one particular topic instead of the others.
 
 Model 1: LDA with Count Vectorizer
+
 Log likelihood Score for the LDA model: -441587.0754078079
+
 Perplixity of the LDA model: 743.0567842013797
+
 Accuracy of the LDA model 92.71%
 
- Topic	Recall	Precision	F1_Score
-Business	84.294235	97.695853	90.501601
-Entertainment	92.411924	96.327684	94.329184
-Politics	98.511166	81.352459	89.113356
-Sport	98.409543	96.868885	97.633136
-Tech	90.201729	92.60355	91.386861
+
 ![image](https://github.com/pratap-vj/Topic-Modeling-on-News-Articles/assets/123111274/47efc723-672a-4605-88a4-ca67e890ca6a)
 
 
 Model 2: LDA with TFIDF Vectorizer
+
 Log-likelihood Score for the LDA model: -15266.990851227729
+
 Perplexity of the LDA model: 386.9878030848297
+
 Accuracy of the LDA model 87.25%
 
-Topic	Recall	Precision	F1_Score
-Business	88.469185	91.37577	89.89899
-Entertainment	74.254743	94.809689	83.282675
-Politics	94.292804	77.079108	84.821429
-Sport	90.656064	91.017964	90.836653
-Tech	86.167147	84.225352	85.185185
 ![image](https://github.com/pratap-vj/Topic-Modeling-on-News-Articles/assets/123111274/ef8b2feb-8e95-41c4-9d6b-464d5a0adf2b)
 
 
@@ -91,7 +86,7 @@ Based on these results, it is evident that Model 1 (LDA with CountVectorizer) is
 
 In conclusion, Model 1 demonstrates superior performance and is recommended as the optimal choice for accurate and effective topic modeling on this dataset.
 
-# Conclusion
+# Conclusion-
 Several key conclusions were drawn from the project:
 
 # Encoding errors: 
